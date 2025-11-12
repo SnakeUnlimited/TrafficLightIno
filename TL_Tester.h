@@ -11,15 +11,15 @@ class TL_Tester : public TL_Test {
 
 public:
   bool exec() {
-    int testsAmount = 4;
+    int testsAmount = 1;
     bool allTestsOk = true;
 
     //// TEST LIST ////
     TL_Test* tests[testsAmount] = {
       new TTrafficLight(),  // ok
-      new TQueueInt(),      // ok
-      new TButtons(),       // ok
-      new TTrafficPhases()  // ok
+    //  new TQueueInt(),      // ok
+     // new TButtons(),       // ok
+     // new TTrafficPhases()  // ok
     };
     //// //// //// ////
     

@@ -11,8 +11,8 @@
 
 class TrafficPhases {
 private:
-  void (*_cbPhaseChange)();
-  void (*_cbPhaseAdd)();
+  void (*_cbPhaseChange)(int);
+  void (*_cbPhaseAdd)(int);
 
   QueueInt _phases;
   QueueInt _durations;
@@ -37,13 +37,13 @@ public:
   };
   
   const int TIME_MAX[4] = {
-    10, // Clearance
+    7, // Clearance
     12, // Passenger
     20 // Car
   };
   TrafficPhases(
-     void (*cbPhaseChange)(),
-     void (*cbPhaseAdd)()
+     void (*cbPhaseChange)(int),
+     void (*cbPhaseAdd)(int)
   );
 
   bool isPhase(int number, int duration) {

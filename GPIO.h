@@ -24,13 +24,17 @@
 #include <Arduino.h>
 #define BAUD 9600
 
-#if MAIN_DEBUGGING
+#define MAIN_DEBUGGING 1    // Show Print Texts
+
+#ifdef MAIN_DEBUGGING
   #define Dprint(...) Serial.print(__VA_ARGS__);
   #define Dprintln(...) Serial.println(__VA_ARGS__);
 #else
   #define Dprint(...)
   #define Dprintln(...)
 #endif
+
+
 
 class GPIO {
 public:
@@ -39,6 +43,7 @@ public:
 
   static void print(String text); // Serial.print
   static void println(String text);
+ // static void Tprint(String text);
   
   static bool isInput(int pin);
   static void pinWrite(int pin, bool mode);

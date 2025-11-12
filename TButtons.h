@@ -5,8 +5,8 @@
 
 #define PRINT_BUTTON 1
 #if PRINT_BUTTON
-    #define Bprint(...) Serial.print(__VA_ARGS__);
-    #define Bprintln(...) Serial.println(__VA_ARGS__);
+    #define Bprint(...) Tprint(__VA_ARGS__);
+    #define Bprintln(...) Tprintln(__VA_ARGS__);
 #else
     #define Bprint(...)
     #define Bprintln(...)

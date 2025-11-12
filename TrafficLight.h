@@ -40,7 +40,7 @@ public:
   }
 
   void toggle() {
-    Dprint("***TRAFFICLIGHT TOGGLE***");
+    //Dprint("***TRAFFICLIGHT TOGGLE***");
     return toggle(!getIsMove());
   }
 
@@ -54,13 +54,14 @@ public:
       if (isMove) {
         _statusQueue.enqueue(1);
         _statusQueue.enqueue(2);
-       // Tprintln(toString()+" // -> Added Red2Green");
+        Dprintln
+(toString()+" // -> Added Red2Green");
       }
       // Grün -> Rot 
       else {
         _statusQueue.enqueue(3);
         _statusQueue.enqueue(0);
-       // Tprintln(toString()+" // -> Added Green2Red");
+        Dprintln(toString()+" // -> Added Green2Red");
         
       }
       if (_amount <= 0) {

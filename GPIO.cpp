@@ -1,11 +1,12 @@
-#include <Arduino.h>
 #include "GPIO.h"
 
 
 void GPIO::init() {
   // Serial
   Serial.begin(BAUD);
-  while (!Serial) {}
+ // while (!Serial) {}
+
+  Serial.print("HAdasdadLLO");
 
   // Buttons
   pinMode(PassBtnVertical, INPUT_PULLUP);
@@ -46,6 +47,11 @@ void GPIO::print(String text) {
 void GPIO::println(String text) {
   Serial.println(text);
 }
+
+/*
+void GPIO::Tprint(String text) {
+  GPIO::print(text);
+}*/
 
 bool GPIO::isInput(int pin) {
   return digitalRead(pin);

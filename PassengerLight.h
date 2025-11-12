@@ -54,9 +54,6 @@ public:
     this->stateRed = false;
     this->stateGreen = false;
     this->_setStatus(0);
-    Dprint("PassengerLight ");
-    Dprint(isVertical);
-    Dprintln("Initit");
   }
   
   

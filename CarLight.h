@@ -10,8 +10,6 @@ class CarLight : public TrafficLight
 {
 private:
 	void _setStatus(int status) override {
-		//Dprint("CAR*->"+toString()+">");
-		Dprint(status);
 		switch (status) {
 		case LIGHT_STOP:
 			stateRed = true;
@@ -65,11 +63,6 @@ public:
 		this->stateYellow = false;
 		this->stateGreen = false;
 		this->_setStatus(0);
-		Dprint("Carlight ");
-		Dprint(isVertical);
-		Dprint( " init");
-		Dprint(pinRed);
-		Dprint("\n");
 	}
 
 	// INIT
