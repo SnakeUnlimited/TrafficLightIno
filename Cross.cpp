@@ -19,31 +19,11 @@ Loop Cross::_loopButtons(Cross::tickBtn, 1);
 Loop Cross::_loopLights(Cross::tickLight, 300);
 Loop Cross::_loopPhases(Cross::tickPhase, 1000);
 Loop Cross::_loopDebug(Cross::tickDebug, 7000);
-bool Cross::_isInit(false);
 
 Buttons Cross::_buttons(Cross::onBtnPressed, Cross::onBtnReleased, 5, 11, 50);
 
 void Cross::init() {
-  Dprint("Cross Init Start\n");
- /*
-
-  new PassengerLight(false), 
-  new PassengerLight(true), 
-  new CarLight(false), 
-  new CarLight(true)
-*/
-
-  /*
-    PHASE:
-      0 = CLEARANCE
-      1 = GO_PASS
-      2 = GO_CAR
-  */
-
-  _isInit = true;
-
- // Cross::_phases.add(2, 0, -1);
-  Dprint("\nCross Init Done\n");
+  /*Dprint("\nCross Init Done\n");
   Dprint("Lights:\n");
   for (int c=0;c<4;c++) {
     Dprint("\t");
@@ -54,8 +34,7 @@ void Cross::init() {
 
   Dprint("\n Phases: \n");
   Dprint(_phases.toString());
-  Dprintln("------------------");
-
+  Dprintln("------------------");*/
 }
 
 String Cross::toToggleStatement(int c, bool exp) {
@@ -92,7 +71,6 @@ void Cross::onPhaseChange(int phase) {
     case 0:
       for (c=0;c<4;c++) {
         _lights[c]->toggle(false);
-         Dprint("Toggle "+toToggleStatement(c, false)+" // CLEARANCE \n");
       }
       break;
     case 1:
@@ -100,8 +78,6 @@ void Cross::onPhaseChange(int phase) {
       for (c=0;c<2;c++) {
         _lights[c]->toggle((!c ^ !neutralCurrent)); // PASS ON
         _lights[c+2]->toggle(false); // CAR OFF
-        Dprint("Toggle "+toToggleStatement(c+2, false)+" // GO PASS  \n");
-        Dprint("Toggle "+toToggleStatement(c, !neutralCurrent)+" // GO PASS \n");
       }
       break;
     case 2:
@@ -109,15 +85,13 @@ void Cross::onPhaseChange(int phase) {
       for (c=0;c<2;c++) {
         _lights[c]->toggle(false); // PASS OFF
         _lights[c+2]->toggle(((c == 0 ? false : true) ^ !neutralCurrent)); // CAR ON
-       Dprint("Toggle "+toToggleStatement(c+2, !neutralCurrent)+" // GO CAR \n");
-       Dprint("Toggle "+toToggleStatement(c, false)+" // GO CAR \n");
       }
       break;
   }
 }
 
 void Cross::onPhaseAdd(int phase) {
-  Dprint("\t\t--- PHASE ADD ---\n");
+  //Dprint("\t\t--- PHASE ADD ---\n");
 }
 
 
@@ -157,7 +131,6 @@ void Cross::tickPhase() {
 
 // Timer
 void Cross::loop() {
-  if (!_isInit) { return; }
   _loopButtons.tick();
   _loopLights.tick();
   _loopPhases.tick();

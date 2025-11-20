@@ -20,17 +20,11 @@ public:
   static Loop _loopPhases;
   static Loop _loopDebug;
 
-  static bool _isInit;
-
-  // Road Phases Queue
- // 
-
-  // Trigger for button events
   static TrafficPhases _phases;
   static Buttons _buttons;
   static TrafficLight *_lights[CROSS_LIGHT_AMOUNT];
-  // Light Output
-  //
+
+
   ////////////////////////
   static void init(); 
   static void onBtnPressed(int i);
@@ -39,7 +33,6 @@ public:
   static void onPhaseAdd(int phase);  
   //////////////////////////
   
-  // SYSCALL
   static void loop();       // Tick as fast as possible from Arduino Loop!
 
   static String toToggleStatement(int c, bool exp);
@@ -50,7 +43,7 @@ public:
   static void tickPhase();   
   static void tickDebug() { 
     return; 
-    Dprint("\n_\n"); 
+   // Dprint("\n_\n"); 
   }
 
 };

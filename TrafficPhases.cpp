@@ -39,10 +39,8 @@ void TrafficPhases::tick()  {
     int phaseOld = _phaseCurrent;
     int head = _phases.getHead();
 
-    Pprint(".....");
-
     if (_phaseCurrent != 0 && head != 0) {
-      Pprint("Clearance System Triggered!!");
+      Pprint("Clearance System Triggered!!\n");
 
       // No clearance!
       _phaseCurrent = 0;
@@ -63,16 +61,13 @@ void TrafficPhases::tick()  {
      //  Pprint("-------------\n");Pprint("PostDeQ: PHASE=");Pprint(_phaseCurrent);Pprint(" // DURR=");Pprint(_durationCurrent);Pprint(" // VERT=");Pprint(_verticalCurrent);
       //Pprint("Dequeued: PHASE=");Pprint(_phaseCurrent);Pprint(" // DURR="); Pprint(_durationCurrent);Pprint(" // VERT=");Pprint(_verticalCurrent);
     } else {
-     // 
-      // NO OTHER JOB:
-      // Create phase
       int newPhase = (
         _phaseCurrent == 0 ? 2 : 
         _phaseCurrent == 1 ? 2: 1
       );
 
       int newDurr = TIME_MIN[newPhase];
-      Pprint("AUTO FILL>> (PHASE/DURR)=> \t");
+      Pprint("Auto Fill Triggered!! (PHASE/DURR)=> \t");
       Pprint(newPhase);
       Pprint(", ");
       Pprint(newDurr);

@@ -4,7 +4,7 @@
 void GPIO::init() {
   // Serial
   Serial.begin(BAUD);
- // while (!Serial) {}
+  while (!Serial) {}
 
   Serial.print("HAdasdadLLO");
 
